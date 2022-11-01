@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Oct 30 02:44:54 PET 2022","Sun Oct 30 02:44:55 PET 2022","820","","eCommerce","","eCommerce","post_crearUsuario_401","post_crearUsuario_401()",""
+"passed","Sun Oct 30 02:44:45 PET 2022","Sun Oct 30 02:44:47 PET 2022","2443","","eCommerce","","eCommerce","post_IngresarUsuario_200","post_IngresarUsuario_200()",""
+"passed","Sun Oct 30 02:44:48 PET 2022","Sun Oct 30 02:44:52 PET 2022","4820","","eCommerce","","eCommerce","post_crearAnuncio_200","post_crearAnuncio_200()",""
+"passed","Sun Oct 30 02:44:55 PET 2022","Sun Oct 30 02:44:55 PET 2022","295","","eCommerce","","eCommerce","get_obtener_categorias_200","get_obtener_categorias_200()",""
+"passed","Sun Oct 30 02:44:52 PET 2022","Sun Oct 30 02:44:54 PET 2022","1937","","eCommerce","","eCommerce","post_crear_Direccion_201","post_crear_Direccion_201()",""
