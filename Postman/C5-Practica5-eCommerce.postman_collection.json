@@ -1,0 +1,2025 @@
+{
+	"info": {
+		"_postman_id": "5e4e27f7-86b0-4c01-a038-d04ca9e0cbbf",
+		"name": "C5 - Practica 5 - eCommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20418239"
+	},
+	"item": [
+		{
+			"name": "get/ObtenerCategorias - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"1. //Validar el estatus",
+							"",
+							"// Se verifica el status \"200\"    ",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"// Se verifica el nombre del estatus \"OK\"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// Se verifica el código de respuesta del GET con código \"200\"",
+							"pm.test(\"Comprobar resultado de llamada de GET\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201,204,207]);",
+							"});",
+							"",
+							"",
+							"2. // Validar el Body",
+							"",
+							"// Se verifica el responde del body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"// Se verifica el contenido de un texto del body",
+							"pm.test(\"El texto contiene Todas de la categoría\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Todas de la categoría\");",
+							"});",
+							"",
+							"// Se verifica el contenido de varios texto del body",
+							"pm.test(\"El texto contiene Todas de la categoría\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"categories\");",
+							"    pm.expect(pm.response.text()).to.include(\"color\");",
+							"    pm.expect(pm.response.text()).to.include(\"icon\");",
+							"});",
+							"    ",
+							"",
+							"// Verificar valor del JSON - Consultar su procedimiento",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.eql(); // to.eql(100);",
+							"});",
+							"",
+							"// Verificar valor del body - Consultar su procedimiento",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(); // (\"response_body_string\");",
+							"});",
+							"",
+							"3. // Validar el tiempo",
+							"",
+							"// Verificar tiempo de respuesta",
+							"pm.test(\"Validar el tiempo de respuesta menor que 3000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000)",
+							"});",
+							"",
+							"4. // Validar el headers",
+							"",
+							"// Se valida que contenga un header response",
+							"pm.test(\"Validar que contenga el Content-Type\" , function(){",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\"))",
+							"});",
+							"",
+							"// Otra forma de validar el header response",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"5. // Pruebas en console.log",
+							"",
+							"// 1. Verificar estructura y nivel del JSON en consulta",
+							"console.log(pm.response.json()) // Lo maneja como un Array",
+							"",
+							"// 1.1. Se desglosa la estructura hasta llegar a \"all_categories\"",
+							"console.log(pm.response.json().all_categories) // Se muestra el contenido que pertenece a all categories",
+							"",
+							"// 1.2. Se desglosa la estructura hasta llegar a \"categories\"",
+							"console.log(pm.response.json().categories) // Se muestra el nivel principal y subniveles con array [], se cuenta con 8 elementos",
+							"",
+							"// 1.2.1 Se desglosa el nivel 0 de \"categories\"",
+							"console.log(pm.response.json().categories[0]) // Se muestra todo el contenido del nivel \"0\" de categories",
+							"",
+							"// 1.2.2 Se desglosa hasta llegar a \"all_label \" del nivel 0 de \"categories\"",
+							"console.log(pm.response.json().categories[0].all_label) // se muestra el nombre de etiqueta ",
+							"",
+							"// 1.2.3 Se desglosa hasta llegar a \"code\" del nivel 0 de \"categories\"",
+							"console.log(pm.response.json().categories[0].categories[0].code)",
+							"// Como se encuentra debajo de \"all_label\", se requiere relacionar con \".categories\" para que pueda capturar el valor deseado.",
+							"",
+							"// 1.2.4 Se desglosa varios subniveles del nivel 0 de \"categories\"",
+							"console.log(pm.response.json().categories[0].categories[0].all_label)",
+							"console.log(pm.response.json().categories[0].categories[0].code)",
+							"console.log(pm.response.json().categories[0].categories[0].filter_value)",
+							"console.log(pm.response.json().categories[0].categories[0].label)",
+							"",
+							"// --> Nota: Se puede encontrar ",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_base}}/nga/api/v1.1/public/categories/filter?lang=es",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1.1",
+						"public",
+						"categories",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post/ListadodeProductosconURL- 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"data\")",
+							"});",
+							"",
+							"pm.test(\"Validar el status es igual a available\", function(){",
+							"    var urls = pm.environment.get(\"urls\") ",
+							"    pm.expect(pm.response.json().urls).to.eql(urls)",
+							"});",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 3000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"filters\":[{\"price\":\"-60000\",\"category\":\"2020\"},{\"price\":\"60000-80000\",\"category\":\"2020\"},{\"price\":\"80000-100000\",\"category\":\"2020\"},{\"price\":\"100000-150000\",\"category\":\"2020\"},{\"price\":\"150000-\",\"category\":\"2020\"}]}"
+				},
+				"url": {
+					"raw": "{{url_base}}/urls/v1/public/ad-listing?lang=es",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"urls",
+						"v1",
+						"public",
+						"ad-listing"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tarea/ get/ObtenerCategorias - 200 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"// --> Tarea de encontrar response de subnivel [1] de categories",
+							"",
+							"1. // Probar el subnivel \"1\" de mayor jerarquía de categories",
+							"console.log(pm.response.json().categories[0].all_label)",
+							"",
+							"1.1 // Probar los subniveles \"1\" de categories de nivel \"0\"",
+							"console.log(pm.response.json().categories[0].categories[1].all_label)",
+							"console.log(pm.response.json().categories[0].categories[1].code)",
+							"console.log(pm.response.json().categories[0].categories[1].filter_value)",
+							"console.log(pm.response.json().categories[0].categories[1].label)",
+							"",
+							"2. // Probar los subniveles \"2\" de categories de nivel \"0\"",
+							"console.log(pm.response.json().categories[0].categories[2].all_label)",
+							"console.log(pm.response.json().categories[0].categories[2].code)",
+							"console.log(pm.response.json().categories[0].categories[2].filter_value)",
+							"console.log(pm.response.json().categories[0].categories[2].label)",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_base}}/nga/api/v1.1/public/categories/filter?lang=es",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1.1",
+						"public",
+						"categories",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get/SelecciónIphone -200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"status\")",
+							"});",
+							"",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 4000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_base}}/nga/api/v1/public/messaging/adinfo?ids=939126427&ts=1667194841366",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1",
+						"public",
+						"messaging",
+						"adinfo"
+					],
+					"query": [
+						{
+							"key": "ids",
+							"value": "939126427"
+						},
+						{
+							"key": "ts",
+							"value": "1667194841366"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post/CrearUsuario - 401",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"1. // Crear un correo desde la consola",
+							"",
+							"1.1 // Generar nombre Random",
+							"var nombre = pm.variables.replaceIn('{{$randomFirstName}}');",
+							"",
+							"1.2 // Generar caracteres alfanuméricos",
+							"var caracter = pm.variables.replaceIn('{{$randomAlphaNumeric}}')",
+							"",
+							"1.3 // Generar correo Random",
+							"var correo = nombre + caracter + \"@mailinator.com\"",
+							"",
+							"console.log(correo)",
+							"",
+							"2. // Guardar la variable en environment",
+							"pm.environment.set(\"correo\",correo)",
+							"",
+							"3. // Variable para obtener el correo y password del clientee y concatenarlo",
+							"var preencode = (pm.environment.get('correo')).concat(':',(pm.environment.get('password')));",
+							"console.log(preencode)",
+							"",
+							"3.1 // Variable para encriptar el correo y password en \"Authorization Basic\" con Base64",
+							"var encoded = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(preencode))",
+							"pm.environment.set('base64',encoded)",
+							"console.log(encoded)",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"1. //Validar el estatus",
+							"",
+							"// Se verifica el status \"401\"    ",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(401)",
+							"});",
+							"",
+							"// Se verifica el nombre del estatus \"UNAUTHORIZED\"",
+							"pm.test(\"El nombre del status es UNAUTHORIZED\", function () {",
+							"    pm.response.to.have.status(\"UNAUTHORIZED\");",
+							"});",
+							"",
+							"// Se verifica el código de respuesta del POST con código \"400\"",
+							"pm.test(\"Comprobar resultado de llamada de POST\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([400,401]);",
+							"});",
+							"",
+							"",
+							"2. // Validar el Body",
+							"",
+							"// Se verifica el responde del body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"// Se verifica el contenido de un texto del body",
+							"pm.test(\"El texto contiene Todas de la categoría\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"error\");",
+							"});",
+							"",
+							"// Se verifica el contenido de varios texto del body",
+							"pm.test(\"El texto contiene Todas de la categoría\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"error\");",
+							"    pm.expect(pm.response.text()).to.include(\"code\");",
+							"    pm.expect(pm.response.text()).to.include(\"ACCOUNT_VERIFICATION_REQUIRED\");",
+							"});",
+							"    ",
+							"",
+							"// Verificar valor del JSON - Consultar su procedimiento",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.eql(); // to.eql(100);",
+							"});",
+							"",
+							"// Verificar valor del body - Consultar su procedimiento",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(); // (\"response_body_string\");",
+							"});",
+							"",
+							"3. // Validar el tiempo",
+							"",
+							"// Verificar tiempo de respuesta",
+							"pm.test(\"Validar el tiempo de respuesta menor que 3000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000)",
+							"});",
+							"",
+							"4. // Validar el headers",
+							"",
+							"// Se valida que contenga un header response",
+							"pm.test(\"Validar que contenga el Content-Type\" , function(){",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\"))",
+							"});",
+							"",
+							"// Otra forma de validar el header response",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{correo}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "api123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\"account\":{\"email\":\"{{correo}}\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_base}}/nga/api/v1.1/private/accounts?lang=es",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1.1",
+						"private",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post/IngresarUsuario - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Asignación de Variables",
+							"",
+							"1. // Visualizar el body del JSON",
+							"console.log(pm.response.json())",
+							"",
+							"1.1 // Desglose del \"Account\" que esta en un primer nivel cuando no es array",
+							"console.log(pm.response.json().account)",
+							"",
+							"1.2 // Desglose del \"account_id\" que esta en un subnivel del \"Account\"",
+							"console.log(pm.response.json().account.account_id)",
+							"",
+							"1.3 // Setear la variable \"account_id\" ",
+							"pm.environment.set(\"account_id\",pm.response.json().account.account_id)",
+							"// --> Va a servir para futuras llamadas",
+							"",
+							"2. // Desglose del \"Access Token\" que esta en un primer nivel cuando no es array",
+							"console.log(pm.response.json().access_token)",
+							"",
+							"2.1 // Setear la variable \"access_token\" ",
+							"pm.environment.set(\"access_token\",pm.response.json().access_token)",
+							"// --> Va a servir para futuras llamadas",
+							"",
+							"3. // Desglose del \"Account_uuid\" y setear la variable \"uuid\"",
+							"console.log(pm.response.json().account.uuid)",
+							"pm.environment.set(\"uuid\",pm.response.json().account.uuid)",
+							"",
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"access_token\")",
+							"});",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 3000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{email}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"account\":{\"email\":\"{{email}}\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_base}}/nga/api/v1.1/private/accounts?lang=es",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1.1",
+						"private",
+						"accounts"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch/EditarDatosUser -200",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"1. // Generar nombre random y setear la variable",
+							"var nombre_usuario = pm.variables.replaceIn('{{$randomFirstName}}');",
+							"console.log(nombre_usuario)",
+							"pm.environment.set(\"nombre_usuario\", nombre_usuario)",
+							"",
+							"2. // Generar números random con la librería Math.floor (se genera 10 dígitos) y se setea la variable",
+							"let numrand = Math.floor(Math.random()* Math.floor(9999999999))",
+							"console.log(numrand)",
+							"pm.environment.set(\"telefono\",numrand)",
+							"",
+							"3. // Request dentro de un request , la data proviene del request anterior \"POST\" , se puede utilizar un body.",
+							"   // Sirve para validar los request de la llamada anterior con los siguientes request futuros donde se validen el metodo, header, url , body y autentificador",
+							"",
+							"let getTokenRequest = {",
+							"    method: 'POST',",
+							"    url : 'https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es',",
+							"    header: {",
+							"        Authorization : \"Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz\"",
+							"    }",
+							"};",
+							"pm.sendRequest(getTokenRequest, function (err, response) {",
+							"    console.log(response.json());",
+							"    pm.environment.set('access_token', response.json().access_token)",
+							"});",
+							"",
+							"3.1 // Otra forma de validar un request dentro de un request",
+							"/*",
+							"let dosgetToken = {",
+							"    method : 'POST',",
+							"    url : 'https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es',",
+							"    auth: {",
+							"        type : 'basic',",
+							"        basic :[",
+							"            {key: 'username', value:email},",
+							"            {Key: 'passsword', value:pass}",
+							"        ]    ",
+							"    },",
+							"    body: '{\"account\":{\"email\":\"{{email}}\"}}'",
+							"};",
+							"",
+							"pm.sendRequest(dosgetToken, function (err, response) {",
+							"    console.log(response.json());",
+							"    pm.environment.set('access_token', response.json().access_token)",
+							"});",
+							"*/",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"account_id\")",
+							"});",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 3000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "tag:scmcoord.com,2013:api {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"account\": {\n\t\t\"name\": \"{{nombre_usuario}}\",\n\t\t\"phone\": \"{{telefono}}\",\n\t\t\"locations\": [{\n\t\t\t\"code\": \"4\",\n\t\t\t\"key\": \"region\",\n\t\t\t\"label\": \"Baja California\",\n\t\t\t\"locations\": [{\n\t\t\t\t\"code\": \"46\",\n\t\t\t\t\"key\": \"municipality\",\n\t\t\t\t\"label\": \"Ensenada\"\n\t\t\t}]\n\t\t}],\n\t\t\"professional\": false,\n\t\t\"phone_hidden\": false\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_base}}/nga/api/v1{{account_id}}?lang=es",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1{{account_id}}"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get/ConsultarUsuario - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"account_id\")",
+							"});",
+							"",
+							"pm.test(\"Validar el status es igual a available\", function(){",
+							"    var urls = pm.environment.get(\"urls\") ",
+							"    pm.expect(pm.response.json().urls).to.eql(urls)",
+							"});",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 3000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "authority",
+						"value": "webapi.segundamano.mx",
+						"type": "text"
+					},
+					{
+						"key": "accept-language",
+						"value": "es-419,es;q=0.9",
+						"type": "text"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.segundamano.mx",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "tag:scmcoord.com,2013:api {{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url_base}}/nga/api/v1/{{account_id}}?lang=es",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1",
+						"{{account_id}}"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post/CrearunAnuncio - 200",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"1. // Request dentro de un request , la data proviene del request anterior \"POST\" , se puede utilizar un body.",
+							"   // Sirve para validar los request de la llamada anterior con los siguientes request futuros donde se validen el metodo, header, url , body y autentificador",
+							"",
+							"let getTokenRequest = {",
+							"    method: 'POST',",
+							"    url : 'https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es',",
+							"    header: {",
+							"        Authorization : \"Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz\"",
+							"    }",
+							"};",
+							"pm.sendRequest(getTokenRequest, function (err, response) {",
+							"    console.log(response.json());",
+							"    pm.environment.set('access_token', response.json().access_token)",
+							"});",
+							"",
+							"3.1 // Otra forma de validar un request dentro de un request",
+							"/*",
+							"let dosgetToken = {",
+							"    method : 'POST',",
+							"    url : 'https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es',",
+							"    auth: {",
+							"        type : 'basic',",
+							"        basic :[",
+							"            {key: 'username', value:email},",
+							"            {Key: 'passsword', value:pass}",
+							"        ]    ",
+							"    },",
+							"    body: '{\"account\":{\"email\":\"{{email}}\"}}'",
+							"};",
+							"",
+							"pm.sendRequest(dosgetToken, function (err, response) {",
+							"    console.log(response.json());",
+							"    pm.environment.set('access_token', response.json().access_token)",
+							"});",
+							"*/",
+							"",
+							"// Tarea: completar 15 request"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"1 // Revisar la estructura de niveles del  JSON ",
+							"console.log(pm.response.json())",
+							"",
+							"1.1 // Revisar la estructura de nivel \"data\" del  JSON ",
+							"console.log(pm.response.json().data)",
+							"",
+							"1.2 // Revisar la estructura de sub nivel \"ad\" del  JSON ",
+							"console.log(pm.response.json().data.ad)",
+							"",
+							"1.3 // Revisar la estructura de 2º sub nivel \"ad_id\" del  JSON ",
+							"console.log(pm.response.json().data.ad.ad_id)",
+							"",
+							"1.4 // Setear la variable \"ad_id\" en environment",
+							"pm.environment.set(\"ad_id\",pm.response.json().data.ad.ad_id)",
+							"",
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"subject\")",
+							"});",
+							"",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 5000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "x-source",
+						"value": "PHOENIX_DESKTOP",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"category\": \"8143\",\n    \"subject\": \"Te organizo tu evento\",\n    \"body\": \"Trabajamos todo tipo de eventos, desde shower hasta party\",\n    \"region\": \"4\",\n    \"municipality\": \"46\",\n    \"area\": \"35466\",\n    \"price\": \"20000\",\n    \"phone_hidden\": \"true\",\n    \"show_phone\": \"false\",\n    \"contact_phone\": \"6289451113\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_base}}/v2/accounts/{{uuid}}/up",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"v2",
+						"accounts",
+						"{{uuid}}",
+						"up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put/EditarunAnuncio - 200 ",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"1. // Request dentro de un request , la data proviene del request anterior \"POST\" , se puede utilizar un body.",
+							"   // Sirve para validar los request de la llamada anterior con los siguientes request futuros donde se validen el metodo, header, url , body y autentificador",
+							"",
+							"let getTokenRequest = {",
+							"    method: 'POST',",
+							"    url : 'https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es',",
+							"    header: {",
+							"        Authorization : \"Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz\"",
+							"    }",
+							"};",
+							"pm.sendRequest(getTokenRequest, function (err, response) {",
+							"    console.log(response.json());",
+							"    pm.environment.set('access_token', response.json().access_token)",
+							"});",
+							"",
+							"3.1 // Otra forma de validar un request dentro de un request",
+							"/*",
+							"let dosgetToken = {",
+							"    method : 'POST',",
+							"    url : 'https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es',",
+							"    auth: {",
+							"        type : 'basic',",
+							"        basic :[",
+							"            {key: 'username', value:email},",
+							"            {Key: 'passsword', value:pass}",
+							"        ]    ",
+							"    },",
+							"    body: '{\"account\":{\"email\":\"{{email}}\"}}'",
+							"};",
+							"",
+							"pm.sendRequest(dosgetToken, function (err, response) {",
+							"    console.log(response.json());",
+							"    pm.environment.set('access_token', response.json().access_token)",
+							"});",
+							"*/",
+							"",
+							"// Tarea: completar 15 request"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"subject\")",
+							"});",
+							"",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 4000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "x-source",
+						"value": "PHOENIX_DESKTOP",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"category\": \"8143\",\n    \"subject\": \"Organizamos todo tipo de eventos\",\n    \"body\": \"Trabajamos todo tipo de eventos, desde shower hasta party\",\n    \"region\": \"4\",\n    \"municipality\": \"46\",\n    \"area\": \"35466\",\n    \"price\": \"20000\",\n    \"phone_hidden\": \"true\",\n    \"show_phone\": \"false\",\n    \"contact_phone\": \"6289451113\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_base}}/v2/accounts/{{uuid}}/up/{{ad_id}}",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"v2",
+						"accounts",
+						"{{uuid}}",
+						"up",
+						"{{ad_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete/BorrarAnuncio - 200",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"1. // Request dentro de un request , la data proviene del request anterior \"POST\" , se puede utilizar un body.",
+							"   // Sirve para validar los request de la llamada anterior con los siguientes request futuros donde se validen el metodo, header, url , body y autentificador",
+							"",
+							"let getTokenRequest = {",
+							"    method: 'POST',",
+							"    url : 'https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es',",
+							"    header: {",
+							"        Authorization : \"Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz\"",
+							"    }",
+							"};",
+							"pm.sendRequest(getTokenRequest, function (err, response) {",
+							"    console.log(response.json());",
+							"    pm.environment.set('access_token', response.json().access_token)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(403)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es FORBIDDEN\", function () {",
+							"    pm.response.to.have.status(\"FORBIDDEN\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"object\")",
+							"});",
+							"",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 4000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(4000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "tag:scmcoord.com,2013:api {{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plan, */*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"delete_reason\":{\"code\":\"0\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_base}}/nga/api/v1{{account_id}}/klfst/{{ad_id}}",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"nga",
+						"api",
+						"v1{{account_id}}",
+						"klfst",
+						"{{ad_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post/CrearDirección - 201",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"1.1 // Generar Apellido Random",
+							"var lastName = pm.variables.replaceIn('{{$randomLastName}}');",
+							"console.log(lastName)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"1. // Visualización del nivel y datos de la estructura JSON",
+							"console.log(pm.response.json())",
+							"",
+							"1.1 // Data del \"addressID\" como primer nivel",
+							"console.log(pm.response.json().addressID)",
+							"",
+							"1.2 // Setear la variable \"addressId\" en environment",
+							"pm.environment.set(\"addressID\",pm.response.json().addressID)",
+							"",
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(201)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es Created\", function () {",
+							"    pm.response.to.have.status(\"Created\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"addressID\")",
+							"});",
+							"",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 3000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(8000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.segundamano.mx",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "contact",
+							"value": "{{nombre_usuario}} {{$randomLastName}}",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "{{telefono}}",
+							"type": "text"
+						},
+						{
+							"key": "rfc",
+							"value": "CAPL800101",
+							"type": "text"
+						},
+						{
+							"key": "zipCode",
+							"value": "11011",
+							"type": "text"
+						},
+						{
+							"key": "exteriorInfo",
+							"value": "Miguel Hidalgo 423",
+							"type": "text"
+						},
+						{
+							"key": "interiorInfo",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "region",
+							"value": "11",
+							"type": "text"
+						},
+						{
+							"key": "municipality",
+							"value": "300",
+							"type": "text"
+						},
+						{
+							"key": "area",
+							"value": "8094",
+							"type": "text"
+						},
+						{
+							"key": "alias",
+							"value": "LaCasa",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_base}}/addresses/v1/create",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"addresses",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete/EliminarDirección - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"message\")",
+							"});",
+							"",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 3000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(8000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_base}}/addresses/v1/delete/{{addressID}}",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"addresses",
+						"v1",
+						"delete",
+						"{{addressID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get/VerCartera - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"balance\")",
+							"});",
+							"",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 3000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(8000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*'",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_base}}/credits/v1/private/accounts/{{ad_id}}",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"credits",
+						"v1",
+						"private",
+						"accounts",
+						"{{ad_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post/ComprarMonedas - 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"1. // Guardar la variable oxxo_ref\" en environment",
+							"console.log(pm.response.json());",
+							"console.log(pm.response.json().data);",
+							"console.log(pm.response.json().data.order_id);",
+							"pm.environment.set(\"order id\",pm.response.json().data.order_id);",
+							"",
+							"// 1. Validar status",
+							"pm.test(\"Validar el código de respuesta\" , function(){",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// 2. Validar Body",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"price\")",
+							"});",
+							"",
+							"",
+							"// 3. Validar tiempo",
+							"pm.test(\"Validar el tiempo de respuesta menor que 3000\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(8000)",
+							"});",
+							"",
+							"// 4. Validar Header",
+							"pm.test(\"Content-Type esta presente\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"products\": [\n        {\n            \"target_id\": 12638970,\n            \"product_id\": \"serv_points_1\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_base}}/premium/v1/private/account/{{uuid}}/order?lang=es",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"premium",
+						"v1",
+						"private",
+						"account",
+						"{{uuid}}",
+						"order"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put/GenerarCódigoPago - 200",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"1. // Guardar la variable oxxo_ref\" en environment",
+							"console.log(pm.response.json());",
+							"console.log(pm.response.json().data);",
+							"console.log(pm.response.json().data.metadata);",
+							"console.log(pm.response.json().data.metadata.oxxoReference);",
+							"pm.environment.set(\"oxxo_ref\",pm.response.json().data.metadata.oxxoReference);",
+							"",
+							"// Prueba para validar el código de respuesta",
+							"pm.test(\"Validar que el código de respuesta sea 200\", function(){",
+							"    pm.expect(pm.response.code).to.eql(200) ",
+							"}),",
+							"",
+							"pm.test(\"El nombre del status es OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"// Validar que el request sea exitoso --> es lo mismo que la función en lineas arribas",
+							"pm.test(\"Validar que responda con un body\", function(){",
+							"    pm.response.to.be.withBody",
+							"});",
+							"",
+							"pm.test(\"Probar que el request es exitoso\", function(){",
+							"    pm.response.to.be.success;",
+							"});",
+							"",
+							"// Validar que el request no sea un error --> es lo mismo con lógica contraria al código de līnea 7",
+							"pm.test(\"Probar que el request no sea un error\", function(){",
+							"    pm.response.to.not.be.error;",
+							"});",
+							"",
+							"// Valida el response del texto del body",
+							"pm.test(\"Validar el nombre de algunos campos que viene con el body\", function(){ // ** , () => {",
+							"    pm.expect(pm.response.text()).to.include(\"status\")",
+							"    pm.expect(pm.response.text()).to.include(\"metadata\")",
+							"});",
+							"",
+							"// Para validar el responde del body de las etiquetas seleccionadas por consola",
+							"console.log(\"Json response : \", pm.response.json())",
+							"console.log(\"Nombre response; \", pm.response.json().data)",
+							"",
+							"",
+							"// Para validar el responde del body de las etiquetas seleccionadas por Test result",
+							"",
+							"",
+							"pm.test(\"Probar que el tiempo de response sea menos a 1 sg\", function(){",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000) ",
+							"}); ",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{access_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{uuid}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"payment_method\": \"oxxo\",\n    \"provider_id\": \"premium\",\n    \"rfc\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_base}}/premium/v1/private/account/{{uuid}}/order/27d9341e-be9a-4741-b4d2-5ca93de4af6b?lang=es",
+					"host": [
+						"{{url_base}}"
+					],
+					"path": [
+						"premium",
+						"v1",
+						"private",
+						"account",
+						"{{uuid}}",
+						"order",
+						"27d9341e-be9a-4741-b4d2-5ca93de4af6b"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
