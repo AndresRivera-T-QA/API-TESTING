@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="eCommerce" tests="15" skipped="0" failures="0" errors="0" timestamp="2022-11-01T23:26:36" hostname="Andres-R-3.local" time="21.903">
+  <properties/>
+  <testcase name="Test case 2: Listado de Productos" classname="eCommerce" time="3.858"/>
+  <testcase name="Test case 12: Eliminar Dirección" classname="eCommerce" time="3.03"/>
+  <testcase name="Test case 14: Comprar Monedas" classname="eCommerce" time="1.181"/>
+  <testcase name="Test case 7: Consultar usuario" classname="eCommerce" time="0.46"/>
+  <testcase name="Test case 3: Selección Iphone" classname="eCommerce" time="0.367"/>
+  <testcase name="Test case 5: Ingresar usuario" classname="eCommerce" time="0.849"/>
+  <testcase name="Test case 8: Crear Anuncio" classname="eCommerce" time="3.792"/>
+  <testcase name="Test case 11: Crear Dirección" classname="eCommerce" time="1.204"/>
+  <testcase name="Test case 10 : Eliminar Anuncio" classname="eCommerce" time="1.916"/>
+  <testcase name="Test case 4: Crear usuario" classname="eCommerce" time="1.145"/>
+  <testcase name="Test case 1: Obtener categorias" classname="eCommerce" time="0.466"/>
+  <testcase name="Test Case 9: Editar un Anuncio" classname="eCommerce" time="1.606"/>
+  <testcase name="Test case 15: Generar Código Pago" classname="eCommerce" time="1.322"/>
+  <testcase name="Test case 13: Ver Cartera" classname="eCommerce" time="0.365"/>
+  <testcase name="Test case 6: Editar usuario" classname="eCommerce" time="0.306"/>
+  <system-out><![CDATA[Request method:	POST
+Request URI:	https://webapi.segundamano.mx/urls/v1/public/ad-listing?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "filters": [
+        {
+            "price": "-60000",
+            "category": "2020"
+        },
+        {
+            "price": "60000-80000",
+            "category": "2020"
+        },
+        {
+            "price": "80000-100000",
+            "category": "2020"
+        },
+        {
+            "price": "100000-150000",
+            "category": "2020"
+        },
+        {
+            "price": "150000-",
+            "category": "2020"
+        }
+    ]
+}
+Body response{"data":{"urls":["/anuncios/mexico/autos-y-camionetas?precio=-60000","/anuncios/mexico/autos-y-camionetas?precio=60000-80000","/anuncios/mexico/autos-y-camionetas?precio=80000-100000","/anuncios/mexico/autos-y-camionetas?precio=100000-150000","/anuncios/mexico/autos-y-camionetas?precio=150000-"]}}
+
+Los Headers son:Server=nginx
+Date=Tue, 01 Nov 2022 23:26:39 GMT
+Content-Type=application/json; charset=utf-8
+Vary=Accept-Encoding
+X-Frame-Options=DENY
+Content-Encoding=gzip
+Via=1.1 google
+Alt-Svc=h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Transfer-Encoding=chunked
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz
+				Accept=*/*
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"access_token":"mc1xe7297b86d42d5af065597d00cc1e74d59674cacc_v2","account":{"account_id":"/private/accounts/12638970","can_publish":true,"email":"test2022_pruebas2@mailinator.com","email_verified":true,"locations":[{"code":"4","key":"region","label":"Baja California","locations":[{"code":"46","key":"municipality","label":"Ensenada"}]}],"name":"Reuben","phone":"8784062200","phone_hidden":false,"professional":false,"rfc":"","uuid":"00855d8d-1b92-45b9-a3bf-5c51dcc69afd"},"ad_events":{"24h":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"7d":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"total":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0}},"token_type":"tag:scmcoord.com,2013:api"}
+Token en funcion: mc1xe7297b86d42d5af065597d00cc1e74d59674cacc_v2
+account id en funcion: /private/accounts/12638970
+uuid en funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+ad_id en funcion: null
+ad_id en funcion: null
+Token: mc1xe7297b86d42d5af065597d00cc1e74d59674cacc_v2
+Token de funcion: mc1xe7297b86d42d5af065597d00cc1e74d59674cacc_v2
+account id de funcion: /private/accounts/12638970
+uuid de funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+Request method:	DELETE
+Request URI:	https://webapi.segundamano.mx/v2/accounts/00855d8d-1b92-45b9-a3bf-5c51dcc69afd/up
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				Authorization=Basic MDA4NTVkOGQtMWI5Mi00NWI5LWEzYmYtNWM1MWRjYzY5YWZkOm1jMXhlNzI5N2I4NmQ0MmQ1YWYwNjU1OTdkMDBjYzFlNzRkNTk2NzRjYWNjX3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response: {"error": "Method not allowed calling /v2/accounts/00855d8d-1b92-45b9-a3bf-5c51dcc69afd/ad"}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz
+				Accept=*/*
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"access_token":"mc1xd7d36f6fe123b707e197db756ba7173500ba4b1f_v2","account":{"account_id":"/private/accounts/12638970","can_publish":true,"email":"test2022_pruebas2@mailinator.com","email_verified":true,"locations":[{"code":"4","key":"region","label":"Baja California","locations":[{"code":"46","key":"municipality","label":"Ensenada"}]}],"name":"Reuben","phone":"8784062200","phone_hidden":false,"professional":false,"rfc":"","uuid":"00855d8d-1b92-45b9-a3bf-5c51dcc69afd"},"ad_events":{"24h":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"7d":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"total":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0}},"token_type":"tag:scmcoord.com,2013:api"}
+Token en funcion: mc1xd7d36f6fe123b707e197db756ba7173500ba4b1f_v2
+account id en funcion: /private/accounts/12638970
+uuid en funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+ad_id en funcion: null
+ad_id en funcion: null
+Token: mc1xd7d36f6fe123b707e197db756ba7173500ba4b1f_v2
+Token de funcion: mc1xd7d36f6fe123b707e197db756ba7173500ba4b1f_v2
+account id de funcion: /private/accounts/12638970
+uuid de funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/premium/v1/private/accounts/00855d8d-1b92-45b9-a3bf-5c51dcc69afd/order?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				Authorization=Basic MDA4NTVkOGQtMWI5Mi00NWI5LWEzYmYtNWM1MWRjYzY5YWZkOm1jMXhkN2QzNmY2ZmUxMjNiNzA3ZTE5N2RiNzU2YmE3MTczNTAwYmE0YjFmX3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "products": [
+        {
+            "target_id": 12638970,
+            "product_id": "serv_points_1"
+        }
+    ]
+}
+Body response: 404 page not found
+
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/nga/api/v1%2F%2Fprivate/accounts/12638970?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"error":{"code":"UNAUTHORIZED"}}
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/nga/api/v1/public/messaging/adinfo?ids=939126427&ts=1667194841366
+Proxy:			<none>
+Request params:	<none>
+Query params:	ids=939126427
+				ts=1667194841366
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"ads":[],"status":"OK"}
+Los Headers son:Server=nginx
+Date=Tue, 01 Nov 2022 23:26:45 GMT
+Content-Type=application/json; charset=utf-8
+Vary=Accept-Encoding
+X-SCM-API-Version=1
+X-Frame-Options=DENY
+Content-Encoding=gzip
+Via=1.1 google
+Alt-Svc=h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Transfer-Encoding=chunked
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "test2022_pruebas2@mailinator.com"
+    }
+}
+Body response{"access_token":"mc1xa94de564b4fab3d32eed619e509e7923d62f8b5f_v2","account":{"account_id":"/private/accounts/12638970","can_publish":true,"email":"test2022_pruebas2@mailinator.com","email_verified":true,"locations":[{"code":"4","key":"region","label":"Baja California","locations":[{"code":"46","key":"municipality","label":"Ensenada"}]}],"name":"Reuben","phone":"8784062200","phone_hidden":false,"professional":false,"rfc":"","uuid":"00855d8d-1b92-45b9-a3bf-5c51dcc69afd"},"ad_events":{"24h":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"7d":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"total":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0}},"token_type":"tag:scmcoord.com,2013:api"}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz
+				Accept=*/*
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"access_token":"mc1x7c2878befbb5ab8677cc687e02180819e7717587_v2","account":{"account_id":"/private/accounts/12638970","can_publish":true,"email":"test2022_pruebas2@mailinator.com","email_verified":true,"locations":[{"code":"4","key":"region","label":"Baja California","locations":[{"code":"46","key":"municipality","label":"Ensenada"}]}],"name":"Reuben","phone":"8784062200","phone_hidden":false,"professional":false,"rfc":"","uuid":"00855d8d-1b92-45b9-a3bf-5c51dcc69afd"},"ad_events":{"24h":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"7d":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"total":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0}},"token_type":"tag:scmcoord.com,2013:api"}
+Token en funcion: mc1x7c2878befbb5ab8677cc687e02180819e7717587_v2
+account id en funcion: /private/accounts/12638970
+uuid en funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+ad_id en funcion: null
+ad_id en funcion: null
+Token: mc1x7c2878befbb5ab8677cc687e02180819e7717587_v2
+Token de funcion: mc1x7c2878befbb5ab8677cc687e02180819e7717587_v2
+account id de funcion: /private/accounts/12638970
+uuid de funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/v2/accounts/00855d8d-1b92-45b9-a3bf-5c51dcc69afd/up
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				x-source=PHOENIX_DESKTOP
+				Authorization=Basic MDA4NTVkOGQtMWI5Mi00NWI5LWEzYmYtNWM1MWRjYzY5YWZkOm1jMXg3YzI4NzhiZWZiYjVhYjg2NzdjYzY4N2UwMjE4MDgxOWU3NzE3NTg3X3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "category": "8143",
+    "subject": "Te organizo tu evento",
+    "body": "Trabajamos todo tipo de eventos, desde shower hasta party",
+    "region": "4",
+    "municipality": "46",
+    "area": "35466",
+    "price": "20000",
+    "phone_hidden": "true",
+    "show_phone": "false",
+    "contact_phone": "6289451113"
+}
+Body response: {"data":{"ad":{"ad_id":"74885093","subject":"Te organizo tu evento","category":{"code":"8143","label":"Organización de eventos","parent":{"code":"8140","label":"Eventos","parent":{"code":"8000","label":"Servicios"}}},"region":{"code":"4","label":"Baja California"},"municipality":{"code":"46","label":"Ensenada"},"area":{"code":"35466","label":"17 de Abril"},"price":{"currency":"MXN","value":20000}},"payment_info":{"payment_required":false,"title":"¡Vende más rápido con los Productos Premium!","description":"Elige la opción que mejor se ajuste a tus necesidades","products":[{"id":"serv_free","name":"Anuncio básico","label":"Anuncio con exposición regular, tendrás menos visitas","description":"Anuncio con exposición regular, tendrás menos visitas","price":0,"most_popular":false,"active":true,"payment_methods":["pay_method_tokens"]},{"id":"serv_daily","name":"Subir Diario","label":"Recibe hasta 5 veces más contactos en 7 días","description":"","price":120,"credits":120,"most_popular":false,"active":true,"payment_methods":["pay_method_credit","pay_method_points","pay_method_oxxo","pay_method_paypal"]},{"id":"serv_premiumpackage_2","name":"Subir diario y Posición principal","label":"Recibe hasta 12 veces más contactos","description":"Sube tu anuncio todos los días durante 7 días y pon tu anuncio en la primera posición durante 3 días","price":220,"credits":220,"most_popular":true,"active":true,"tag":{"slug":"tag_recommended","name":"RECOMENDADO"},"payment_methods":["pay_method_credit","pay_method_points","pay_method_oxxo","pay_method_paypal"]}]}}}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz
+				Accept=*/*
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"access_token":"mc1x7e0e711bc54ac257db50396386e0b94acdde97fe_v2","account":{"account_id":"/private/accounts/12638970","can_publish":true,"email":"test2022_pruebas2@mailinator.com","email_verified":true,"locations":[{"code":"4","key":"region","label":"Baja California","locations":[{"code":"46","key":"municipality","label":"Ensenada"}]}],"name":"Reuben","phone":"8784062200","phone_hidden":false,"professional":false,"rfc":"","uuid":"00855d8d-1b92-45b9-a3bf-5c51dcc69afd"},"ad_events":{"24h":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"7d":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"total":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0}},"token_type":"tag:scmcoord.com,2013:api"}
+Token en funcion: mc1x7e0e711bc54ac257db50396386e0b94acdde97fe_v2
+account id en funcion: /private/accounts/12638970
+uuid en funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+ad_id en funcion: null
+ad_id en funcion: null
+Token: mc1x7e0e711bc54ac257db50396386e0b94acdde97fe_v2
+Token de funcion: mc1x7e0e711bc54ac257db50396386e0b94acdde97fe_v2
+account id de funcion: /private/accounts/12638970
+uuid de funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/addresses/v1/create
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	contact=Agente de ventas
+				phone=8776655443
+				rfc=CAPL800101
+				zipCode=45999
+				exteriorInfo=Miguel Hidalgo 4232
+				interiorInfo=2
+				region=11
+				municipality=300
+				area=8094
+				alias=La oficina
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				Authorization=Basic MDA4NTVkOGQtMWI5Mi00NWI5LWEzYmYtNWM1MWRjYzY5YWZkOm1jMXg3ZTBlNzExYmM1NGFjMjU3ZGI1MDM5NjM4NmUwYjk0YWNkZGU5N2ZlX3Yy
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response: {"addressID":"a9b5299c-5a3c-11ed-907c-c7e1c6c51940"}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz
+				Accept=*/*
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"access_token":"mc1x15971cedf30307d39edf4205881e4969725f2946_v2","account":{"account_id":"/private/accounts/12638970","can_publish":true,"email":"test2022_pruebas2@mailinator.com","email_verified":true,"locations":[{"code":"4","key":"region","label":"Baja California","locations":[{"code":"46","key":"municipality","label":"Ensenada"}]}],"name":"Reuben","phone":"8784062200","phone_hidden":false,"professional":false,"rfc":"","uuid":"00855d8d-1b92-45b9-a3bf-5c51dcc69afd"},"ad_events":{"24h":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"7d":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"total":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0}},"token_type":"tag:scmcoord.com,2013:api"}
+Token en funcion: mc1x15971cedf30307d39edf4205881e4969725f2946_v2
+account id en funcion: /private/accounts/12638970
+uuid en funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+ad_id en funcion: null
+ad_id en funcion: null
+Token: mc1x15971cedf30307d39edf4205881e4969725f2946_v2
+Token de funcion: mc1x15971cedf30307d39edf4205881e4969725f2946_v2
+account id de funcion: /private/accounts/12638970
+uuid de funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+ad id: null
+Request method:	DELETE
+Request URI:	https://webapi.segundamano.mx/nga/api/v100855d8d-1b92-45b9-a3bf-5c51dcc69afd/klfst/null
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				Authorization=tag:scmcoord.com,2013:api {{access_token}}
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "delete_reason": {
+        "code": "0"
+    }
+}
+Body response: {"error":{"code":404}}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic YWdlbnRlX3ZlbnRhczMwNS4wQG1haWxpbmF0b3IuY29tOmFwaTEyMw==
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "email": "agente_ventas305.0@mailinator.com"
+    }
+}
+Body response{"error":{"code":"ACCOUNT_VERIFICATION_REQUIRED"}}
+Los Headers son:Server=nginx
+Date=Tue, 01 Nov 2022 23:26:54 GMT
+Content-Type=application/json; charset=utf-8
+Content-Length=50
+X-SCM-API-Version=1.1
+Via=1.1 google
+Alt-Svc=h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/public/categories/filter?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"all_categories":{"color":"FFFFFF","icon":"http://www.segundamano.mx/img/nga/todas_las_categorias.png","label":"Todas las categorías"},"categories":[{"all_label":"Todas de la categoría","categories":[{"all_label":"Todas de la categoría","code":"1020","filter_value":{"keys":["category"],"values":["1020"]},"label":"Venta inmuebles"},{"all_label":"Todas de la categoría","code":"1040","filter_value":{"keys":["category"],"values":["1040"]},"label":"Renta inmuebles"},{"all_label":"Todas de la categoría","code":"1060","filter_value":{"keys":["category"],"values":["1060"]},"label":"Traspasos"},{"all_label":"Todas de la categoría","code":"1080","filter_value":{"keys":["category"],"values":["1080"]},"label":"Rentas vacacionales"},{"all_label":"Todas de la categoría","code":"1100","filter_value":{"keys":["category"],"values":["1100"]},"label":"Desarrollos inmobiliarios"}],"code":"1000","color":"FDE8DE","filter_value":{"keys":["category"],"values":["1000"]},"icon":"http://www.segundamano.mx/img/nga/inmuebles.png","label":"Inmuebles"},{"all_label":"Todas de la categoría","categories":[{"all_label":"Todas de la categoría","categories":[{"code":"2021","filter_value":{"keys":["category"],"values":["2021"]},"label":"Autos"},{"code":"2022","filter_value":{"keys":["category"],"values":["2022"]},"label":"Suv, Jeep y Van"},{"code":"2023","filter_value":{"keys":["category"],"values":["2023"]},"label":"Pick up"}],"code":"2020","filter_value":{"keys":["category"],"values":["2020"]},"label":"Automóviles y camionetas"},{"all_label":"Todas de la categoría","code":"2040","filter_value":{"keys":["category"],"values":["2040"]},"label":"Motocicletas"},{"all_label":"Todas de la categoría","categories":[{"code":"2121","filter_value":{"keys":["category"],"values":["2121"]},"label":"Autoestereos y sonido"},{"code":"2122","filter_value":{"keys":["category"],"values":["2122"]},"label":"Refacciones y otras"},{"code":"2123","filter_value":{"keys":["category"],"values":["2123"]},"label":"Rines y llantas"},{"code":"2124","filter_value":{"keys":["category"],"values":["2124"]},"label":"Remolques y cajas secas"}],"code":"2120","filter_value":{"keys":["category"],"values":["2120"]},"label":"Accesorios y piezas"},{"all_label":"Todas de la categoría","code":"2080","filter_value":{"keys":["category"],"values":["2080"]},"label":"Camiones, comerciales y casas rodantes"},{"all_label":"Todas de la categoría","code":"2060","filter_value":{"keys":["category"],"values":["2060"]},"label":"Náutica y aéreos"}],"code":"2000","color":"E1E1E1","filter_value":{"keys":["category"],"values":["2000"]},"icon":"http://www.segundamano.mx/img/nga/vehiculos.png","label":"Vehículos"},{"all_label":"Todas de la categoría","categories":[{"all_label":"Todas de la categoría","categories":[{"code":"5041","filter_value":{"keys":["category"],"values":["5041"]},"label":"Telefonía"},{"code":"5042","filter_value":{"keys":["category"],"values":["5042"]},"label":"Accesorios"}],"code":"5040","filter_value":{"keys":["category"],"values":["5040"]},"label":"Celulares y teléfonos"},{"all_label":"Todas de la categoría","code":"5080","filter_value":{"keys":["category"],"values":["5080"]},"label":"Audio, tv, video y fotografía"},{"all_label":"Todas de la categoría","categories":[{"code":"5021","filter_value":{"keys":["category"],"values":["5021"]},"label":"Laptops, PC y tabletas"},{"code":"5022","filter_value":{"keys":["category"],"values":["5022"]},"label":"Accesorios, juegos y programas"}],"code":"5020","filter_value":{"keys":["category"],"values":["5020"]},"label":"Computadoras y accesorios"},{"all_label":"Todas de la categoría","code":"5060","filter_value":{"keys":["category"],"values":["5060"]},"label":"Consolas y videojuegos"}],"code":"5000","color":"8ECBCD","filter_value":{"keys":["category"],"values":["5000"]},"icon":"http://www.segundamano.mx/img/nga/computadoras_y_electronica.png","label":"Computación y electrónica"},{"all_label":"Todas de la categoría","categories":[{"all_label":"Todas de la categoría","categories":[{"code":"3041","filter_value":{"keys":["category"],"values":["3041"]},"label":"Ventilación y calefacción"},{"code":"3042","filter_value":{"keys":["category"],"values":["3042"]},"label":"Utensilios de cocina"},{"code":"3043","filter_value":{"keys":["category"],"values":["3043"]},"label":"Electrodomésticos y línea blanca"},{"code":"3044","filter_value":{"keys":["category"],"values":["3044"]},"label":"Blancos, organización y limpieza"}],"code":"3040","filter_value":{"keys":["category"],"values":["3040"]},"label":"Todo para tu casa"},{"all_label":"Todas de la categoría","code":"3020","filter_value":{"keys":["category"],"values":["3020"]},"label":"Jardín, herramientas y exteriores"},{"all_label":"Todas de la categoría","categories":[{"code":"3061","filter_value":{"keys":["category"],"values":["3061"]},"label":"Vestidos, faldas, trajes"},{"code":"3062","filter_value":{"keys":["category"],"values":["3062"]},"label":"Zapatos"},{"code":"3063","filter_value":{"keys":["category"],"values":["3063"]},"label":"Playeras y camisas"},{"code":"3064","filter_value":{"keys":["category"],"values":["3064"]},"label":"Pantalones y shorts"},{"code":"3065","filter_value":{"keys":["category"],"values":["3065"]},"label":"Sweaters, abrigos y chamarras"},{"code":"3066","filter_value":{"keys":["category"],"values":["3066"]},"label":"Otras prendas de vestir"}],"code":"3060","filter_value":{"keys":["category"],"values":["3060"]},"label":"Ropa y calzado"},{"all_label":"Todas de la categoría","categories":[{"code":"3101","filter_value":{"keys":["category"],"values":["3101"]},"label":"Ropa, calzado y accesorios"},{"code":"3102","filter_value":{"keys":["category"],"values":["3102"]},"label":"Juguetes"},{"code":"3103","filter_value":{"keys":["category"],"values":["3103"]},"label":"Sillas y carriolas"},{"code":"3104","filter_value":{"keys":["category"],"values":["3104"]},"label":"Muebles y blancos"},{"code":"3105","filter_value":{"keys":["category"],"values":["3105"]},"label":"Cuidado y nutrición"}],"code":"3100","filter_value":{"keys":["category"],"values":["3100"]},"label":"Bebés y niños"},{"all_label":"Todas de la categoría","categories":[{"code":"3081","filter_value":{"keys":["category"],"values":["3081"]},"label":"Relojes"},{"code":"3082","filter_value":{"keys":["category"],"values":["3082"]},"label":"Joyas y bisutería"},{"code":"3083","filter_value":{"keys":["category"],"values":["3083"]},"label":"Bolsas, carteras y cinturones"},{"code":"3084","filter_value":{"keys":["category"],"values":["3084"]},"label":"Lentes, gorras y otros accesorios"}],"code":"3080","filter_value":{"keys":["category"],"values":["3080"]},"label":"Accesorios y joyería"},{"all_label":"Todas de la categoría","categories":[{"code":"3121","filter_value":{"keys":["category"],"values":["3121"]},"label":"Sala"},{"code":"3122","filter_value":{"keys":["category"],"values":["3122"]},"label":"Recámara"},{"code":"3123","filter_value":{"keys":["category"],"values":["3123"]},"label":"Comedor"},{"code":"3124","filter_value":{"keys":["category"],"values":["3124"]},"label":"Artículos de decoración"},{"code":"3125","filter_value":{"keys":["category"],"values":["3125"]},"label":"Otros muebles"}],"code":"3120","filter_value":{"keys":["category"],"values":["3120"]},"label":"Muebles y decoración"}],"code":"3000","color":"FDE8DE","filter_value":{"keys":["category"],"values":["3000"]},"icon":"http://www.segundamano.mx/img/nga/tu_hogar_y_tu.png","label":"Tu hogar y tú"},{"all_label":"Todas de la categoría","categories":[{"all_label":"Todas de la categoría","code":"6020","filter_value":{"keys":["category"],"values":["6020"]},"label":"Ofertas de empleo"},{"all_label":"Todas de la categoría","code":"6040","filter_value":{"keys":["category"],"values":["6040"]},"label":"Busco empleo"},{"all_label":"Todas de la categoría","code":"6060","filter_value":{"keys":["category"],"values":["6060"]},"label":"Educación"}],"code":"6000","color":"E1E1E1","filter_value":{"keys":["category"],"values":["6000"]},"icon":"http://www.segundamano.mx/img/nga/empleo_y_educacion.png","label":"Empleo y educación"},{"all_label":"Todas de la categoría","categories":[{"all_label":"Todas de la categoría","categories":[{"code":"4021","filter_value":{"keys":["category"],"values":["4021"]},"label":"Animales"},{"code":"4022","filter_value":{"keys":["category"],"values":["4022"]},"label":"Accesorios, cuidado y nutrición"}],"code":"4020","filter_value":{"keys":["category"],"values":["4020"]},"label":"Animales y mascotas"},{"all_label":"Todas de la categoría","categories":[{"code":"4041","filter_value":{"keys":["category"],"values":["4041"]},"label":"Ropa y calzado deportivo"},{"code":"4042","filter_value":{"keys":["category"],"values":["4042"]},"label":"Equipo, accesorios y hobbies"}],"code":"4040","filter_value":{"keys":["category"],"values":["4040"]},"label":"Deportes y hobbies"},{"all_label":"Todas de la categoría","code":"4060","filter_value":{"keys":["category"],"values":["4060"]},"label":"Instrumentos musicales"},{"all_label":"Todas de la categoría","code":"4100","filter_value":{"keys":["category"],"values":["4100"]},"label":"Coleccionismo"},{"all_label":"Todas de la categoría","code":"4080","filter_value":{"keys":["category"],"values":["4080"]},"label":"Música, libros y películas"},{"all_label":"Todas de la categoría","code":"4120","filter_value":{"keys":["category"],"values":["4120"]},"label":"Salud y belleza"},{"all_label":"Todas de la categoría","code":"4140","filter_value":{"keys":["category"],"values":["4140"]},"label":"Papelería, escolares y oficina"}],"code":"4000","color":"8ECBCD","filter_value":{"keys":["category"],"values":["4000"]},"icon":"http://www.segundamano.mx/img/nga/tiempo_libre.png","label":"Tiempo libre"},{"all_label":"Todas de la categoría","categories":[{"all_label":"Todas de la categoría","categories":[{"code":"8021","filter_value":{"keys":["category"],"values":["8021"]},"label":"Construcción"},{"code":"8022","filter_value":{"keys":["category"],"values":["8022"]},"label":"Diseño"},{"code":"8023","filter_value":{"keys":["category"],"values":["8023"]},"label":"Decoración de interiores"},{"code":"8024","filter_value":{"keys":["category"],"values":["8024"]},"label":"Remodelaciones"},{"code":"8025","filter_value":{"keys":["category"],"values":["8025"]},"label":"Jardinería"},{"code":"8026","filter_value":{"keys":["category"],"values":["8026"]},"label":"Persianas y pisos"},{"code":"8027","filter_value":{"keys":["category"],"values":["8027"]},"label":"Carpinteros"},{"code":"8028","filter_value":{"keys":["category"],"values":["8028"]},"label":"Electricista"},{"code":"8029","filter_value":{"keys":["category"],"values":["8029"]},"label":"Herrería"},{"code":"8030","filter_value":{"keys":["category"],"values":["8030"]},"label":"Albañiles"},{"code":"8031","filter_value":{"keys":["category"],"values":["8031"]},"label":"Plomero"},{"code":"8032","filter_value":{"keys":["category"],"values":["8032"]},"label":"Pintor"},{"code":"8033","filter_value":{"keys":["category"],"values":["8033"]},"label":"Limpieza"},{"code":"8034","filter_value":{"keys":["category"],"values":["8034"]},"label":"Mantenimiento de Inmuebles"}],"code":"8020","filter_value":{"keys":["category"],"values":["8020"]},"label":"Remodelaciones y mantenimiento"},{"all_label":"Todas de la categoría","categories":[{"code":"8041","filter_value":{"keys":["category"],"values":["8041"]},"label":"Arquitectos"},{"code":"8042","filter_value":{"keys":["category"],"values":["8042"]},"label":"Abogados"},{"code":"8043","filter_value":{"keys":["category"],"values":["8043"]},"label":"Contadores"},{"code":"8044","filter_value":{"keys":["category"],"values":["8044"]},"label":"Administración"},{"code":"8045","filter_value":{"keys":["category"],"values":["8045"]},"label":"Más profesionales"}],"code":"8040","filter_value":{"keys":["category"],"values":["8040"]},"label":"Profesionales"},{"all_label":"Todas de la categoría","categories":[{"code":"8061","filter_value":{"keys":["category"],"values":["8061"]},"label":"Equipo ligero"},{"code":"8062","filter_value":{"keys":["category"],"values":["8062"]},"label":"Grúas"},{"code":"8063","filter_value":{"keys":["category"],"values":["8063"]},"label":"Maquinaria y equipo pesado"}],"code":"8060","filter_value":{"keys":["category"],"values":["8060"]},"label":"Renta de maquinaria y equipo"},{"all_label":"Todas de la categoría","categories":[{"code":"8081","filter_value":{"keys":["category"],"values":["8081"]},"label":"Celulares"},{"code":"8082","filter_value":{"keys":["category"],"values":["8082"]},"label":"Computadoras y laptops"},{"code":"8083","filter_value":{"keys":["category"],"values":["8083"]},"label":"Línea Blanca"},{"code":"8084","filter_value":{"keys":["category"],"values":["8084"]},"label":"Aire acondicionado"},{"code":"8085","filter_value":{"keys":["category"],"values":["8085"]},"label":"Equipos industriales"},{"code":"8086","filter_value":{"keys":["category"],"values":["8086"]},"label":"Otros equipos electrónicos"}],"code":"8080","filter_value":{"keys":["category"],"values":["8080"]},"label":"Reparación de equipo"},{"all_label":"Todas de la categoría","code":"8100","filter_value":{"keys":["category"],"values":["8100"]},"label":"Internet y Comunicaciones"},{"all_label":"Todas de la categoría","categories":[{"code":"8121","filter_value":{"keys":["category"],"values":["8121"]},"label":"Mudanzas y fletes"},{"code":"8122","filter_value":{"keys":["category"],"values":["8122"]},"label":"Transporte de pasajeros"}],"code":"8120","filter_value":{"keys":["category"],"values":["8120"]},"label":"Transportes"},{"all_label":"Todas de la categoría","categories":[{"code":"8141","filter_value":{"keys":["category"],"values":["8141"]},"label":"Foto y video"},{"code":"8142","filter_value":{"keys":["category"],"values":["8142"]},"label":"Salon de eventos"},{"code":"8143","filter_value":{"keys":["category"],"values":["8143"]},"label":"Organización de eventos"},{"code":"8144","filter_value":{"keys":["category"],"values":["8144"]},"label":"Comida para fiestas"},{"code":"8145","filter_value":{"keys":["category"],"values":["8145"]},"label":"Alquiler de Equipamiento"},{"code":"8146","filter_value":{"keys":["category"],"values":["8146"]},"label":"Música para eventos"}],"code":"8140","filter_value":{"keys":["category"],"values":["8140"]},"label":"Eventos"},{"all_label":"Todas de la categoría","categories":[{"code":"8161","filter_value":{"keys":["category"],"values":["8161"]},"label":"Taller Mecánico"},{"code":"8162","filter_value":{"keys":["category"],"values":["8162"]},"label":"Hojalatería y pintura"},{"code":"8163","filter_value":{"keys":["category"],"values":["8163"]},"label":"Autolavado"}],"code":"8160","filter_value":{"keys":["category"],"values":["8160"]},"label":"Mantenimiento de Autos"},{"all_label":"Todas de la categoría","categories":[{"code":"8181","filter_value":{"keys":["category"],"values":["8181"]},"label":"Peluquería"},{"code":"8182","filter_value":{"keys":["category"],"values":["8182"]},"label":"Depilación"},{"code":"8183","filter_value":{"keys":["category"],"values":["8183"]},"label":"Manicura y Pedicura"},{"code":"8184","filter_value":{"keys":["category"],"values":["8184"]},"label":"Maquillaje"},{"code":"8185","filter_value":{"keys":["category"],"values":["8185"]},"label":"Masajes y Spa"}],"code":"8180","filter_value":{"keys":["category"],"values":["8180"]},"label":"Cuidado personal, belleza y estética"},{"all_label":"Todas de la categoría","categories":[{"code":"8201","filter_value":{"keys":["category"],"values":["8201"]},"label":"Diseño gráfico y digital"},{"code":"8202","filter_value":{"keys":["category"],"values":["8202"]},"label":"Imprenta"},{"code":"8203","filter_value":{"keys":["category"],"values":["8203"]},"label":"Promocionales"}],"code":"8200","filter_value":{"keys":["category"],"values":["8200"]},"label":"Publicidad"},{"all_label":"Todas de la categoría","categories":[{"code":"8221","filter_value":{"keys":["category"],"values":["8221"]},"label":"Veterinarias"},{"code":"8222","filter_value":{"keys":["category"],"values":["8222"]},"label":"Paseadores y cuidadores"},{"code":"8223","filter_value":{"keys":["category"],"values":["8223"]},"label":"Estética canina"}],"code":"8220","filter_value":{"keys":["category"],"values":["8220"]},"label":"Servicios para mascota"},{"all_label":"Todas de la categoría","categories":[{"code":"8241","filter_value":{"keys":["category"],"values":["8241"]},"label":"Accesorios y servicios funerarios"},{"code":"8242","filter_value":{"keys":["category"],"values":["8242"]},"label":"Fabricación"},{"code":"8243","filter_value":{"keys":["category"],"values":["8243"]},"label":"Varios"}],"code":"8240","filter_value":{"keys":["category"],"values":["8240"]},"label":"Otros Servicios"}],"code":"8000","color":"FDE8DE","filter_value":{"keys":["category"],"values":["8000"]},"icon":"http://www.segundamano.mx/img/nga/servicios.png","label":"Servicios"},{"all_label":"Todas de la categoría","categories":[{"all_label":"Todas de la categoría","code":"9020","filter_value":{"keys":["category"],"values":["9020"]},"label":"Venta y Traspasos"},{"all_label":"Todas de la categoría","categories":[{"code":"9041","filter_value":{"keys":["category"],"values":["9041"]},"label":"Alimentos"},{"code":"9042","filter_value":{"keys":["category"],"values":["9042"]},"label":"Mobiliario"},{"code":"9043","filter_value":{"keys":["category"],"values":["9043"]},"label":"Industrial"}],"code":"9040","filter_value":{"keys":["category"],"values":["9040"]},"label":"Equipamiento e Insumos"}],"code":"9000","color":"FDE8DE","filter_value":{"keys":["category"],"values":["9000"]},"icon":"http://www.segundamano.mx/img/nga/negocios_y_servicios.png","label":"Negocios e Industria"}]}
+Los Headers son:Server=nginx
+Content-Type=application/json; charset=utf-8
+Vary=Accept-Encoding
+X-SCM-API-Version=1.1
+Cache-Control=max-age=31536000
+ETag=W/"454f075aee4dc3c414ec981431530f58"
+Date=Thu, 27 Oct 2022 20:22:55 GMT
+X-Frame-Options=DENY
+Content-Encoding=gzip
+Via=1.1 google
+Alt-Svc=h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Transfer-Encoding=chunked
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz
+				Accept=*/*
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"access_token":"mc1x0bf82020e71840a721a679b2d4bb4f710e0abf1c_v2","account":{"account_id":"/private/accounts/12638970","can_publish":true,"email":"test2022_pruebas2@mailinator.com","email_verified":true,"locations":[{"code":"4","key":"region","label":"Baja California","locations":[{"code":"46","key":"municipality","label":"Ensenada"}]}],"name":"Reuben","phone":"8784062200","phone_hidden":false,"professional":false,"rfc":"","uuid":"00855d8d-1b92-45b9-a3bf-5c51dcc69afd"},"ad_events":{"24h":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"7d":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"total":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0}},"token_type":"tag:scmcoord.com,2013:api"}
+Token en funcion: mc1x0bf82020e71840a721a679b2d4bb4f710e0abf1c_v2
+account id en funcion: /private/accounts/12638970
+uuid en funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+ad_id en funcion: null
+ad_id en funcion: null
+Token: mc1x0bf82020e71840a721a679b2d4bb4f710e0abf1c_v2
+Token de funcion: mc1x0bf82020e71840a721a679b2d4bb4f710e0abf1c_v2
+account id de funcion: /private/accounts/12638970
+uuid de funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+ad id: null
+Request method:	PUT
+Request URI:	https://webapi.segundamano.mx/v2/accounts/00855d8d-1b92-45b9-a3bf-5c51dcc69afd/up/null
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				x-source=PHOENIX_DESKTOP
+				Authorization=Basic MDA4NTVkOGQtMWI5Mi00NWI5LWEzYmYtNWM1MWRjYzY5YWZkOm1jMXgwYmY4MjAyMGU3MTg0MGE3MjFhNjc5YjJkNGJiNGY3MTBlMGFiZjFjX3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "category": "8143",
+    "subject": "Organizamos todo tipo de eventos",
+    "body": "Trabajamos todo tipo de eventos, desde shower hasta party",
+    "region": "4",
+    "municipality": "46",
+    "area": "35466",
+    "price": "20000",
+    "phone_hidden": "true",
+    "show_phone": "false",
+    "contact_phone": "6289451113"
+}
+Body response: {"error":"INTERNAL_SERVER_ERROR"}
+Request method:	POST
+Request URI:	https://webapi.segundamano.mx/nga/api/v1.1/private/accounts?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz
+				Accept=*/*
+				Content-Type=application/x-www-form-urlencoded; charset=ISO-8859-1
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"access_token":"mc1xbedc6cfe378d43d285132bfa3484479a1fd3ac0a_v2","account":{"account_id":"/private/accounts/12638970","can_publish":true,"email":"test2022_pruebas2@mailinator.com","email_verified":true,"locations":[{"code":"4","key":"region","label":"Baja California","locations":[{"code":"46","key":"municipality","label":"Ensenada"}]}],"name":"Reuben","phone":"8784062200","phone_hidden":false,"professional":false,"rfc":"","uuid":"00855d8d-1b92-45b9-a3bf-5c51dcc69afd"},"ad_events":{"24h":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"7d":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0},"total":{"calls":0,"mails":0,"phone_view_leads":0,"phone_views":0,"views":0}},"token_type":"tag:scmcoord.com,2013:api"}
+Token en funcion: mc1xbedc6cfe378d43d285132bfa3484479a1fd3ac0a_v2
+account id en funcion: /private/accounts/12638970
+uuid en funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+ad_id en funcion: null
+ad_id en funcion: null
+Token: mc1xbedc6cfe378d43d285132bfa3484479a1fd3ac0a_v2
+Token de funcion: mc1xbedc6cfe378d43d285132bfa3484479a1fd3ac0a_v2
+account id de funcion: /private/accounts/12638970
+uuid de funcion: 00855d8d-1b92-45b9-a3bf-5c51dcc69afd
+Request method:	PUT
+Request URI:	https://webapi.segundamano.mx/premium/v1/private/accounts/00855d8d-1b92-45b9-a3bf-5c51dcc69afd/order/27d9341e-be9a-4741-b4d2-5ca93de4af6b?lang=es&Key=Value
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+				Key=Value
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+				Authorization=Basic MDA4NTVkOGQtMWI5Mi00NWI5LWEzYmYtNWM1MWRjYzY5YWZkOm1jMXhiZWRjNmNmZTM3OGQ0M2QyODUxMzJiZmEzNDg0NDc5YTFmZDNhYzBhX3Yy
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "payment_method": "oxxo",
+    "provider_id": "premium",
+    "rfc": ""
+}
+Body response: 404 page not found
+
+Request method:	GET
+Request URI:	https://webapi.segundamano.mx/credits/v1/private/accounts/74884315
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=application/json, text/plain, */*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Body response{"balance":{"balance":0},"Transactions":[]}
+
+Request method:	PATCH
+Request URI:	https://webapi.segundamano.mx/nga/api/v1/private/accounts/12638970?lang=es
+Proxy:			<none>
+Request params:	<none>
+Query params:	lang=es
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz
+				Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "account": {
+        "name": "{{nombre_usuario}}",
+        "phone": "{{telefono}}",
+        "locations": [
+            {
+                "code": "4",
+                "key": "region",
+                "label": "Baja California",
+                "locations": [
+                    {
+                        "code": "46",
+                        "key": "municipality",
+                        "label": "Ensenada"
+                    }
+                ]
+            }
+        ],
+        "professional": false,
+        "phone_hidden": false
+    }
+}
+Body response: {"error":{"code":"UNAUTHORIZED"}}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,63 @@
+<div>PATCH to https://webapi.segundamano.mx/nga/api/v1/private/accounts/12638970?lang=es</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+{
+    &quot;account&quot;: {
+        &quot;name&quot;: &quot;{{nombre_usuario}}&quot;,
+        &quot;phone&quot;: &quot;{{telefono}}&quot;,
+        &quot;locations&quot;: [
+            {
+                &quot;code&quot;: &quot;4&quot;,
+                &quot;key&quot;: &quot;region&quot;,
+                &quot;label&quot;: &quot;Baja California&quot;,
+                &quot;locations&quot;: [
+                    {
+                        &quot;code&quot;: &quot;46&quot;,
+                        &quot;key&quot;: &quot;municipality&quot;,
+                        &quot;label&quot;: &quot;Ensenada&quot;
+                    }
+                ]
+            }
+        ],
+        &quot;professional&quot;: false,
+        &quot;phone_hidden&quot;: false
+    }
+}    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Authorization: Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X PATCH &#39;https://webapi.segundamano.mx/nga/api/v1/private/accounts/12638970?lang=es&#39; -H &#39;Authorization: Basic dGVzdDIwMjJfcHJ1ZWJhczJAbWFpbGluYXRvci5jb206YXBpMTIz&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;account&quot;: {
+        &quot;name&quot;: &quot;{{nombre_usuario}}&quot;,
+        &quot;phone&quot;: &quot;{{telefono}}&quot;,
+        &quot;locations&quot;: [
+            {
+                &quot;code&quot;: &quot;4&quot;,
+                &quot;key&quot;: &quot;region&quot;,
+                &quot;label&quot;: &quot;Baja California&quot;,
+                &quot;locations&quot;: [
+                    {
+                        &quot;code&quot;: &quot;46&quot;,
+                        &quot;key&quot;: &quot;municipality&quot;,
+                        &quot;label&quot;: &quot;Ensenada&quot;
+                    }
+                ]
+            }
+        ],
+        &quot;professional&quot;: false,
+        &quot;phone_hidden&quot;: false
+    }
+}&#39;
+</div>
